@@ -60,7 +60,7 @@
 }
 .side-catalog.fixed {
   position: fixed;
-  top: -21px;
+  top: 0px;
 }
 .side-catalog.fold .catalog-toggle::before {
   content: "+";
@@ -99,30 +99,32 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.side-catalog .catalog-body .h1_nav,
-.side-catalog .catalog-body .h2_nav {
+.side-catalog .catalog-body .h1_nav {
   margin-left: 0;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.side-catalog .catalog-body .h2_nav {
+  margin-left: 8px;
+  font-size: 14px;
   font-weight: bold;
 }
 .side-catalog .catalog-body .h3_nav {
-  margin-left: 6px;
-  font-size: 13px;
+  margin-left: 16px;
+  font-size:13px;
   font-weight: bold;
 }
 .side-catalog .catalog-body .h4_nav {
-  margin-left: 12px;
+  margin-left: 24px;
   font-size: 12px;
 }
-.side-catalog .catalog-body .h4_nav a {
-  max-width: 170px;
-}
-.side-catalog .catalog-body .h5_nav .h6_nav {
-  margin-left: 18px;
+.side-catalog .catalog-body .h5_nav {
+  margin-left: 32px;
   font-size: 12px;
 }
-.side-catalog .catalog-body .h5_nav .h6_nav a {
-  max-width: 170px;
+.side-catalog .catalog-body .h6_nav {
+  margin-left: 40px;
+  font-size: 12px;
 }
 .side-catalog .catalog-body .active {
   border-radius: 4px;
@@ -137,7 +139,7 @@
   }
 }
 /*
-  Please note this CSS is currently in   prototype form. We'll implement a cleaned up version in Web Starter Kit.
+  Please note this CSS is currently in prototype form. We'll implement a cleaned up version in Web Starter Kit.
 */
 .paper-snackbar {
   transition-property: opacity, bottom, left, right, width, margin, border-radius;

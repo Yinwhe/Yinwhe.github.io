@@ -2,10 +2,6 @@
 layout: default
 ---
 
-<!-- Image to hack wechat -->
-<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
-
 <!-- Post Header -->
 {% include intro-header.html type='post' %}
 
@@ -16,7 +12,7 @@ layout: default
 
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-10 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 post-container">
 
@@ -66,7 +62,7 @@ layout: default
     <!-- Side Catalog Container -->
         {% unless page.no-catalog %}
             <div class="
-                col-lg-2 col-lg-offset-0
+                col-lg-3 col-lg-offset-11
                 visible-lg-block
                 sidebar-container
                 catalog-container">
@@ -79,19 +75,6 @@ layout: default
                 </div>
             </div>
         {% endunless %}
-
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                {% include featured-tags.html bottom=true %}
-
-                <!-- Friends Blog -->
-                {% include friends.html %}
-            </div>
         </div>
     </div>
 </article>

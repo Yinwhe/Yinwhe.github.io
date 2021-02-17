@@ -53,7 +53,7 @@ The codes that manipulate **shared data**.
    
     - only one process can execute in the critical section
 2. **Progress**
-    
+   
     - if no process is executing in its critical section and some processes wish to enter their critical section, then only those processes that are not executing in their remainder sections can participate in deciding which will enter its critical section next, and this selection cannot be postponed indefinitely.
     - The **purpose** of this condition is to make sure that either some process is currently in the CS and doing some work, or, if there was at least one process that wants to enter the CS, it will enter and do some work. In both cases, some work is getting done and therefore all processes are **making progress** overall.
 3. **Bounded waiting**
@@ -176,7 +176,7 @@ void increment(atomic_int *v) {
 
 ---
 
-## Lock
+### Lock
 
 - With `Test-and-Set`
 
@@ -334,6 +334,16 @@ signal(semaphore *S) {
     }
     ```
 
+
+
+> Why we need spinlock and semaphore? 
+
+**Ans:** If operation inside CS is rather easy and short, spinlock greatly outperform semaphore for the overhead of acquiring the spinlock is a mere dozen cycles, compared to millions of operation in semaphore.
+
+Please check [Spinlock vs Semaphore](https://medium.com/@nonuruzun/spinlock-vs-semaphore-8f88cc048f71).
+
+
+
 # Examples
 
 ### Bounded-Buffer Problem
@@ -477,10 +487,20 @@ two versions – **named** and **unnamed**
 
 - Named semaphores can be used by unrelated processes, unnamed cannot.
 
-**Condition Variables**
+
+
+### **Condition Variables**
 
 **`condition x`** Two operations are allowed on a condition variable:
 
 - **`x.wait()`** – a process that invokes the operation is suspended until **`x.signal()`**
+
 - **`x.signal()`** – resumes one of processes (if any) that invoked **`x.wait()`**
+
 - If no **`x.wait()`** on the variable, then it has no effect on the variable
+
+  
+
+Condition variables can be more **flexible**, since it can awake thread precisely.
+
+- Take writer/reader problem as example, when reader find writer is still writing, it sleeps. And when the poor writer finally finished, it awake a reader in the waiting queue. But what if there are many readers waiting and one of them is VIP and shall read it first? In semaphore we cannot implement it since threads are awaking one by one in the waiting queue, but with condition variables we can "tag" that VIP and use `x.signal()` to awake it when data is ready.

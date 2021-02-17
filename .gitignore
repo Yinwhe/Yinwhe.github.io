@@ -4,7 +4,6 @@ node_modules
 */.DS_Store
 */*/.DS_Store
 *.sh
-_origin
-_notdone
 .jekyll-cache
 README.zh.md
+stack

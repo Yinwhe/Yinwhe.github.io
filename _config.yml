@@ -2,11 +2,11 @@
 title: Yinwhe's Blog
 SEOTitle: Having fun!
 header-img: img/home-top.jpg
-email: wyffeiwhe@163.com
+email: wyffeiwhe@gmail.com
 description: "ZJU-IS, not a very qualified learner"
 keyword: "ZJU, IS, Yinwhe, Web"
-url: "https://Yinwhe.github.io"              # your host, for absolute URL
-baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
+url: "https://Yinwhe.github.io" # your host, for absolute URL
+baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -14,11 +14,12 @@ future: true
 # SNS settings
 RSS: true
 #weibo_username:
-#zhihu_username:
+#zhihu_username: 
 github_username: Yinwhe
 #twitter_username:
-#facebook_username:  huxpro
-#linkedin_username:  firstname-lastname-idxxxx
+#facebook_username:
+#linkedin_username:
+netease_id: 411311178
 
 
 
@@ -26,9 +27,10 @@ github_username: Yinwhe
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
 permalink: pretty
-paginate: 10
+paginate: 8
+
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+anchorjs: true  # if you want to customize anchor. check out line:181 of `post.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
 #timezone: CN  
 
@@ -43,8 +45,6 @@ plugins: [jekyll-paginate]
 
 
 # Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 kramdown:
@@ -62,7 +62,7 @@ kramdown:
 # disqus_username:
 
 # Netease settings
-netease_comment: true
+netease_comment: false
 
 
 
@@ -78,16 +78,16 @@ netease_comment: true
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: '<div style="align-content: center;">涓嶆槸涓€涓�鍚堟牸鐨刢oder锛屽彧鎯宠秮鐫€娲荤潃澶氱湅鐪嬩笘鐣�<br>Always expect and wait </div> <br> 鍏�浼楀彿 CloudOfThought'
+sidebar-about-description: "What's past is prologue <br>凡是过往，皆为序章"
 sidebar-avatar: /img/0.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 5              # A tag will be featured if the size of it is more than this condition value
 
-# Progressive Web AppsS
+# Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
@@ -99,8 +99,20 @@ friends: [
         href: "https://reticenceji.github.io"
     },
     {
-        title: "RegulusGuo Blog",
-        href: "https://RegulusGuo Blog"
+        title: "OE-Heart Blog",
+        href: "https://OE-Heart.github.io"
+    },
+    {
+        title: "Cute YYY",
+        href: "https://tropinene.github.io"
+    },
+    {
+        title: "Saltyfish Xuan",
+        href: "https://www.yuque.com/xianyuxuan/coding"
+    },
+    {
+      title: "Best vaphan",
+      href: "https://vaphan.com"
     }
     # use ',' to divide each
 ]
