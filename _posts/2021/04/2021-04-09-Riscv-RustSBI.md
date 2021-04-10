@@ -82,9 +82,9 @@ Legacy SBI Extension 并不使用 FID，每个function都是独立的 extension
 void sbi_set_timer(uint64_t stime_value)
 ```
 
-为`stime_value`时间之后的事件设置时钟，`stime_value`以绝对时间为单位。这个函数同时也清除挂起的计时器中断位pending timer interrupt bit
+- 为`stime_value`时间之后的事件设置时钟，`stime_value`以绝对时间为单位。这个函数同时也清除挂起的计时器中断位pending timer interrupt bit
 
-如果Supervisor希望清除计时器中断而不调度下一个计时器事件，它可以请求一个计时器中断到无限远的未来(即(uint64_t)-1)，或者它可以通过清除`sie.stie`来屏蔽计时器中断。
+- 如果Supervisor希望清除计时器中断而不调度下一个计时器事件，它可以请求一个计时器中断到无限远的未来(即(uint64_t)-1)，或者它可以通过清除`sie.stie`来屏蔽计时器中断。
 
 **Console Putchar (EID #0x01)**
 
@@ -92,7 +92,7 @@ void sbi_set_timer(uint64_t stime_value)
 void sbi_console_putchar(int ch)
 ```
 
-把`ch`代表的数据写到调试控制台。与`sbi_console_getchar()`不同，如果还有任何待传输的字符，或者接收终端还没有准备好接收字节，则此`SBI`调用将阻塞；如果控制台根本不存在，那么字符就会被丢弃。
+- 把`ch`代表的数据写到调试控制台。与`sbi_console_getchar()`不同，如果还有任何待传输的字符，或者接收终端还没有准备好接收字节，则此`SBI`调用将阻塞；如果控制台根本不存在，那么字符就会被丢弃。
 
 **Console Getchar (EID #0x02)**
 
@@ -100,7 +100,7 @@ void sbi_console_putchar(int ch)
 int sbi_console_getchar(void)
 ```
 
-从调试控制台读取一个字节，成功则返回字节，失败返回`-1` ；这是Legacy Extension中唯一一个具有非void返回类型的SBI调用。
+- 从调试控制台读取一个字节，成功则返回字节，失败返回`-1` ；这是Legacy Extension中唯一一个具有非void返回类型的SBI调用。
 
 **Clear IPI (EID #0x03)**
 
@@ -108,7 +108,7 @@ int sbi_console_getchar(void)
 void sbi_clear_ipi(void)
 ```
 
-如果有的话，清除所有的pending IPI(Inter-Processor Interrupt)；不推荐使用，因为S mode可以直接清除`sip.SSIP`
+- 如果有的话，清除所有的pending IPI(Inter-Processor Interrupt)；不推荐使用，因为S mode可以直接清除`sip.SSIP`
 
 **Send IPI (EID #0x04)**
 
@@ -116,9 +116,9 @@ void sbi_clear_ipi(void)
 void sbi_send_ipi(const unsigned long *hart_mask)
 ```
 
-向`hart_mask`中定义的所有harts发送一个IPI，IPI以Supervisor Software Interrupts的形式出现在接收端。
+- 向`hart_mask`中定义的所有harts发送一个IPI，IPI以Supervisor Software Interrupts的形式出现在接收端。
 
-`hart_mask`是一个虚拟地址，指向harts的位向量。位向量表示为一个unsigned long序列，其长度等于系统中hart的数量除以unsigned long中的位数，向上取整到下一个整数。
+- `hart_mask`是一个虚拟地址，指向harts的位向量。位向量表示为一个unsigned long序列，其长度等于系统中hart的数量除以unsigned long中的位数，向上取整到下一个整数。
 
 **Remote FENCE.I (EID #0x05)**
 
@@ -126,7 +126,7 @@ void sbi_send_ipi(const unsigned long *hart_mask)
 void sbi_remote_fence_i(const unsigned long *hart_mask)
 ```
 
-指导其他的`hart`执行 `Fence_i` 指令，其他hart通过`hart_mask`来指定。
+- 指导其他的`hart`执行 `Fence_i` 指令，其他hart通过`hart_mask`来指定。
 
 **Remote SFENCE.VMA (EID #0x06)**
 
@@ -136,7 +136,7 @@ void sbi_remote_sfence_vma(const unsigned long *hart_mask,
                            unsigned long size)
 ```
 
-指导其他的`hart`执行`sfence.vma`指令，其他hart通过hart_mask来指定。其范围包括虚拟地址从`start`到`start+size`的所有虚拟地址。
+- 指导其他的`hart`执行`sfence.vma`指令，其他hart通过hart_mask来指定。其范围包括虚拟地址从`start`到`start+size`的所有虚拟地址。
 
 **Remote SFENCE.VMA with ASID (EID #0x07)**
 
@@ -147,7 +147,7 @@ void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
                                 unsigned long asid)
 ```
 
-同上一指令，但只包含了给定的 `ASID`
+- 同上一指令，但只包含了给定的 `ASID`
 
 **System Shutdown (EID #0x08)**
 
@@ -155,9 +155,25 @@ void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
 void sbi_shutdown(void)
 ```
 
-将所有hart置于关机状态，这个SBI调用不返回。
+- 将所有hart置于关机状态，这个SBI调用不返回。
 
-[Untitled](https://www.notion.so/26eac55a3fbb4e339dcdc0f46d855cd5)
+
+
+
+|Function Name|FID|EID|Replacement EID|
+|-------------|---|---|---------------|
+|sbi_set_timer|0|0x00|0x54494D45|
+|sbi_console_putchar|0|0x01|N/A|
+|sbi_console_getchar|0|0x02|N/A|
+|sbi_clear_ipi|0|0x03|N/A|
+|sbi_send_ipi|0|0x04|0x735049|
+|sbi_remote_fence_i|0|0x05|0x52464E43|
+|sbi_remote_sfence_vma|0|0x06|0x52464E43|
+|sbi_remote_sfence_vma_asid|0|0x07|0x52464E43|
+|sbi_shutdown|0|0x08|0x53525354|
+|RESERVED|0|0x09-0x0F|
+
+
 
 ## Timer Extension (EID #0x54494D45 "TIME")
 
@@ -167,7 +183,7 @@ void sbi_shutdown(void)
 struct sbiret sbi_set_timer(uint64_t stime_value)
 ```
 
-为`stime_value`时间之后的事件设置时钟，`stime_value`以绝对时间为单位。这个函数同时也清除挂起的计时器中断位。
+- 为`stime_value`时间之后的事件设置时钟，`stime_value`以绝对时间为单位。这个函数同时也清除挂起的计时器中断位。
 
 如果Supervisor希望清除计时器中断而不调度下一个计时器事件，它可以请求一个计时器中断到无限远的未来(即(uint64_t)-1)，或者它可以通过清除`sie.stie`来屏蔽计时器中断。
 
@@ -180,9 +196,9 @@ struct sbiret sbi_send_ipi(unsigned long hart_mask,
                            unsigned long hart_mask_base)
 ```
 
-向`hart_mask`中定义的所有harts发送一个IPI，IPI以Supervisor Software Interrupts的形式出现在接收端。
+- 向`hart_mask`中定义的所有harts发送一个IPI，IPI以Supervisor Software Interrupts的形式出现在接收端。
 
-返回值 - `SBI_SUCCESS` IPI was sent to all the targeted harts successfully.
+- 返回值 - `SBI_SUCCESS` IPI was sent to all the targeted harts successfully.
 
 ## RFENCE Extension (EID #0x52464E43 "RFNC")
 
@@ -275,7 +291,17 @@ struct sbiret sbi_remote_hfence_vvma(unsigned long hart_mask,
 
 Hart状态管理(HSM)扩展引入了一套Hart状态和一组功能，允许管理模式软件请求Hart状态改变。
 
-[一些state](https://www.notion.so/e6ce29b0fd574f33ab2603379e9cf449)
+一些state：
+|State ID|State Name|Description|
+|--------|----------|-----------|
+|0|STARTED|hart通电且执行正常|
+|1|STOPPED|hart不是在监督模式或任何低特权模式下执行的。如果底层平台有一种机制可以物理地关闭harts，则它可能由SBI实现关闭。|
+|2|START_PENDING|其他hart请求启动该hart，且SBI正试图启动该hart|
+|3|STOP_PENDING|hart请求自身断电，且SBI正试图使hart处于停止状态|
+|4|SUSPENDED|这个hart处于挂起(或低功耗)状态。|
+|5|SUSPEND_PENDING|hart要求将自己置于低功耗状态，而SBI正试图使hart处于挂起状态|
+|6|RESUME_PENDING|中断或平台特定的硬件事件导致hart从挂起状态要恢复正常执行，而SBI正试图使hart处于启动状态。|
+
 
 ![RustSBI%20f122ceddc0db47e19575c3d232745e79/Untitled%202.png](https://tva1.sinaimg.cn/large/008eGmZEly1gpdubfas4yj30n20dm0to.jpg)
 
