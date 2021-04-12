@@ -292,6 +292,7 @@ struct sbiret sbi_remote_hfence_vvma(unsigned long hart_mask,
 Hart状态管理(HSM)扩展引入了一套Hart状态和一组功能，允许管理模式软件请求Hart状态改变。
 
 一些state：
+
 |State ID|State Name|Description|
 |--------|----------|-----------|
 |0|STARTED|hart通电且执行正常|
