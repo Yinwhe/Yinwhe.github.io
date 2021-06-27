@@ -3,8 +3,8 @@ title: TLBZero's Blog
 SEOTitle: Having fun!
 header-img: img/home-top.jpg
 email: wyffeiwhe@gmail.com
-description: "ZJU-IS, not a very qualified learner"
-keyword: "ZJU, IS, Yinwhe, TLBZero, Web, Operating System"
+description: "ZJU IS Student, not a very qualified coder"
+keyword: "ZJU, IS, Yinwhe, TLBZero, Operating System"
 url: "https://Yinwhe.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -85,7 +85,7 @@ sidebar-avatar: /img/0.jpg      # use absolute URL, seeing it's used in both `/`
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 10             # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 8              # A tag will be featured if the size of it is more than this condition value
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
@@ -95,11 +95,11 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "Reticenceji Blog",
+        title: "Reticenceji",
         href: "https://reticenceji.github.io"
     },
     {
-        title: "OE-Heart Blog",
+        title: "Cool OE-Heart",
         href: "https://OE-Heart.github.io"
     },
     {
@@ -111,7 +111,7 @@ friends: [
         href: "https://www.yuque.com/xianyuxuan/coding"
     },
     {
-      title: "Best vaphan",
+      title: "Best Vaphan",
       href: "https://vaphan.com"
     }
     # use ',' to divide each
