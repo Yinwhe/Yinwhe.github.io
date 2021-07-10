@@ -113,6 +113,10 @@ friends: [
     {
       title: "Best Vaphan",
       href: "https://vaphan.com"
+    },
+    {
+      title: "Double Jing",
+      href: "https://j1ng-yuan.github.io"
     }
     # use ',' to divide each
 ]
