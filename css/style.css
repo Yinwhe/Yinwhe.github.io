@@ -68,6 +68,7 @@ body {
   background-color: var(--color-background);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-image: url("/images/theme/bg.png");
 }
 body a {
   color: var(--color-text);
@@ -1496,7 +1497,7 @@ body input {
 }
 @media (min-width: 1200px) {
   .article-wrap .container {
-    max-width: calc(800px * 12 / 6);
+    max-width: calc(600px * 12 / 6);
   }
 }
 .article .wrap {
@@ -1815,7 +1816,7 @@ body input {
 }
 @media (min-width: 1200px) {
   .article-wrap--pure .container {
-    max-width: 800px;
+    max-width: 600px;
   }
 }
 .article-wrap--pure .article .wrap {
