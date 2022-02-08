@@ -1400,13 +1400,9 @@ body input {
 }
 .post .post-item {
   margin-bottom: 30px;
-}
-.post .post-item .post-wrap:hover {
-  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.1);
-}
-.post .post-item .post-wrap {
-  box-shadow: 0 5px 40px -1px rgba(2,10,18,0.11);
-  background-color: var(--color-background);
+  border-bottom: solid 1px #e6e6e6;
+  width: 70%;
+  transform: translate(24%);
 }
 .post .post-item .post-wrap .post-top {
   z-index: 10;
@@ -1433,40 +1429,17 @@ body input {
   color: #fff;
   box-shadow: -3px 5px 6px -5px rgba(0,0,0,0.5);
 }
-.post .post-item .post-wrap .post-image {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 66%;
-}
-.post .post-item .post-wrap .post-image img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  object-fit: cover;
-}
-.post .post-item .post-wrap .post-image img,
-.post .post-item .post-wrap .post-image img:hover {
-  transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-}
-.post .post-item .post-wrap .post-image img:hover {
-  filter: grayscale(100%);
-}
 .post .post-item .post-wrap .post-content {
   position: relative;
-  padding: 20px;
-  height: 180px;
+  padding: 0px;
+  height: 120px;
 }
 .post .post-item .post-wrap .post-content-wrap {
-  height: 110px;
+  height: 120px;
   overflow: hidden;
 }
 .post .post-item .post-wrap .post-content .post-title {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 .post .post-item .post-wrap .post-content .post-title a {
   display: -webkit-box;
@@ -1479,7 +1452,7 @@ body input {
 }
 .post .post-item .post-wrap .post-content .post-info {
   position: absolute;
-  bottom: 20px;
+  bottom: 12px;
   color: var(--color-text-third);
 }
 .post .post-item .post-wrap .post-content .post-info .post-info-item {
